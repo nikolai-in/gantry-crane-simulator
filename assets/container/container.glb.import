@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bdn8aqys5ovrt"
+uid="uid://bp6uv0dxq2o6f"
 path="res://.godot/imported/container.glb-d2f6bdb55c66119876711109972e88fd.scn"
 
 [deps]
@@ -27,4 +27,15 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:AnimationPlayer": {
+"optimizer/enabled": false
+},
+"PATH:container2": {
+"physics/body_type": 1,
+"physics/shape_type": 1,
+"primitive/size": Vector3(3.5, 3.7, 9)
+}
+}
+}
