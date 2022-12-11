@@ -9,9 +9,9 @@
 
 [node name="wheels" parent="." instance=ExtResource("1_o2bji")]
 
-[node name="base" parent="wheels" instance=ExtResource("2_781qy")]
+[node name="Base" parent="wheels" instance=ExtResource("2_781qy")]
 
-[node name="cabin" parent="wheels/base" instance=ExtResource("3_jplgf")]
+[node name="Cabin" parent="wheels/Base" instance=ExtResource("3_jplgf")]
 
-[node name="arm" parent="wheels/base/cabin" instance=ExtResource("4_pso6d")]
+[node name="Arm" parent="wheels/Base/Cabin" instance=ExtResource("4_pso6d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
