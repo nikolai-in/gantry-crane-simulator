@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://5nf8x8mgoe7p"
+uid="uid://c7yv1hlwdmjev"
 path="res://.godot/imported/arm.glb-671c189385bc880ed1d0dea7f447382c.scn"
 
 [deps]
@@ -27,4 +27,10 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:arm2": {
+"generate/physics": true
+}
+}
+}
