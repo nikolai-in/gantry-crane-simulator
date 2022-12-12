@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bbxje73om15mn"
+uid="uid://w3uoit4k47dt"
 path="res://.godot/imported/base.glb-9bc9c7f56e76ccf5d842368dead735ba.scn"
 
 [deps]
@@ -30,7 +30,8 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:base2": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 2
 }
 }
 }
