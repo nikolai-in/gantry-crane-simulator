@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://golgjnc1ma7g"
+uid="uid://bbxje73om15mn"
 path="res://.godot/imported/base.glb-9bc9c7f56e76ccf5d842368dead735ba.scn"
 
 [deps]
@@ -27,4 +27,10 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:base2": {
+"generate/physics": true
+}
+}
+}

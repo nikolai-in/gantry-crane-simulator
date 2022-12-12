@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cuyob3gug4cij"]
 
 [ext_resource type="PackedScene" uid="uid://draciic7t4p2l" path="res://assets/gantry_crane/wheels.glb" id="1_o2bji"]
-[ext_resource type="PackedScene" uid="uid://golgjnc1ma7g" path="res://assets/gantry_crane/base.glb" id="2_781qy"]
+[ext_resource type="PackedScene" uid="uid://bbxje73om15mn" path="res://assets/gantry_crane/base.glb" id="2_781qy"]
 [ext_resource type="PackedScene" uid="uid://cojv3s0sjf48c" path="res://assets/gantry_crane/cabin.glb" id="3_jplgf"]
 [ext_resource type="PackedScene" uid="uid://c7yv1hlwdmjev" path="res://assets/gantry_crane/arm.glb" id="4_pso6d"]
 [ext_resource type="Script" path="res://addons/xsm/state.gd" id="5_kfq2p"]
