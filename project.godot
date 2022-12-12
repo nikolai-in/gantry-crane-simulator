@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Gantry Crane Simulator"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 

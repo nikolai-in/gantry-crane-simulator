@@ -1,3 +1,55 @@
-[gd_scene format=3 uid="uid://dfdbqvv6onu6y"]
+[gd_scene load_steps=8 format=3 uid="uid://b0ewgdk63e18a"]
 
-[node name="Main" type="Node3D"]
+[ext_resource type="Shader" path="res://global/shaders/sky_shader.gdshader" id="1_rdv6j"]
+[ext_resource type="Script" path="res://global/free_look_camera.gd" id="2_4bwf4"]
+[ext_resource type="PackedScene" uid="uid://0wkplj3m2p0w" path="res://scenes/game/container/container.tscn" id="3_if3un"]
+[ext_resource type="PackedScene" uid="uid://cuyob3gug4cij" path="res://scenes/game/gantry_crane/gantry_crane.tscn" id="4_g7ag8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rme20"]
+shader = ExtResource("1_rdv6j")
+shader_parameter/color_bottom = Color(0.203922, 0.596078, 0.803922, 1)
+shader_parameter/color_horizon = Color(0.611765, 0.94902, 0.929412, 1)
+shader_parameter/color_top = Color(0.937255, 0.792157, 0.717647, 1)
+shader_parameter/exponent_factor_bottom = null
+shader_parameter/exponent_factor_top = null
+shader_parameter/intensity_amp = null
+
+[sub_resource type="Sky" id="Sky_uexqg"]
+sky_material = SubResource("ShaderMaterial_rme20")
+
+[sub_resource type="Environment" id="Environment_upchs"]
+background_mode = 2
+sky = SubResource("Sky_uexqg")
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.75
+
+[node name="Main" type="Node"]
+
+[node name="Space" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Space"]
+environment = SubResource("Environment_upchs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Space"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.425528, -0.375745, 0.823251, -0.262545, 0.819337, 0.509664, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="Space"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 40)
+current = true
+script = ExtResource("2_4bwf4")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Space"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Space/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(500, 1, 500)
+
+[node name="GantryCrane" parent="Space" instance=ExtResource("4_g7ag8")]
+
+[node name="Container" parent="Space" instance=ExtResource("3_if3un")]
+transform = Transform3D(-0.999867, 0, 0.0163006, 0, 1, 0, -0.0163006, 0, -0.999867, 0, 1.8, 0)
+
+[node name="Container2" parent="Space" instance=ExtResource("3_if3un")]
+transform = Transform3D(-0.999867, 0, 0.0163006, 0, 1, 0, -0.0163006, 0, -0.999867, 0, 6.95999, 0)
