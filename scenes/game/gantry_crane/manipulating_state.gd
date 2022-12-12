@@ -9,7 +9,7 @@ extends State
 # This function is called when the state enters
 # XSM enters the root first, the the children
 func _on_enter(_args) -> void:
-	print("Hello world of state 2")
+	print("Manipulating")
 
 
 # This function is called just after the state enters
@@ -21,6 +21,8 @@ func _after_enter(_args) -> void:
 # This function is called each frame if the state is ACTIVE
 # XSM updates the root first, then the children
 func _on_update(_delta: float) -> void:
+	%Arm.position.y = clamp(%Arm.position.y, 4, 22)
+	%Cabin.position.x = clamp(%Cabin.position.x, -9, 9)
 	if Input.is_action_pressed("arm_down"):
 		%Arm.position.y -= 1 * _delta
 	elif Input.is_action_pressed("arm_up"):

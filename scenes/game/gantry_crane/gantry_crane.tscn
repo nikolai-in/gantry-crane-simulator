@@ -20,7 +20,7 @@ unique_name_in_owner = true
 
 [node name="Arm" parent="Wheels/Base/Cabin" instance=ExtResource("4_pso6d")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 0)
 
 [node name="State" type="Node" parent="."]
 script = ExtResource("5_kfq2p")
@@ -37,7 +37,7 @@ disabled = false
 debug_mode = false
 target_path = NodePath("")
 timed = false
-next_state = NodePath("../Manipulating")
+next_state = NodePath("")
 
 [node name="Manipulating" type="Node" parent="State"]
 script = ExtResource("7_eba70")
