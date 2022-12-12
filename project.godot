@@ -13,9 +13,39 @@ _global_script_classes=[{
 "class": &"AutoExportVersion",
 "language": &"GDScript",
 "path": "res://addons/AutoExportVersion/AutoExportVersion.gd"
+}, {
+"base": "Node",
+"class": &"State",
+"language": &"GDScript",
+"path": "res://addons/xsm/state.gd"
+}, {
+"base": "State",
+"class": &"StateAnimation",
+"language": &"GDScript",
+"path": "res://addons/xsm/state_animation.gd"
+}, {
+"base": "State",
+"class": &"StateLoop",
+"language": &"GDScript",
+"path": "res://addons/xsm/state_loop.gd"
+}, {
+"base": "State",
+"class": &"StateRand",
+"language": &"GDScript",
+"path": "res://addons/xsm/state_rand.gd"
+}, {
+"base": "State",
+"class": &"StateRegions",
+"language": &"GDScript",
+"path": "res://addons/xsm/state_regions.gd"
 }]
 _global_script_class_icons={
-"AutoExportVersion": ""
+"AutoExportVersion": "",
+"State": "res://addons/xsm/icons/state.png",
+"StateAnimation": "res://addons/xsm/icons/state_animation.png",
+"StateLoop": "res://addons/xsm/icons/state_loop.png",
+"StateRand": "res://addons/xsm/icons/state_rand.png",
+"StateRegions": "res://addons/xsm/icons/state_regions.png"
 }
 
 [application]
