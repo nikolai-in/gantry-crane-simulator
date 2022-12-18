@@ -4,7 +4,7 @@
 [ext_resource type="Shader" path="res://global/shaders/sky_shader.gdshader" id="1_rdv6j"]
 [ext_resource type="Script" path="res://global/free_look_camera.gd" id="2_4bwf4"]
 [ext_resource type="PackedScene" uid="uid://0wkplj3m2p0w" path="res://scenes/game/container/container.tscn" id="3_if3un"]
-[ext_resource type="Material" path="res://assets/grid_material_3d.tres" id="3_rigc0"]
+[ext_resource type="Material" uid="uid://c6xmpgv6kwl25" path="res://assets/grid_material_3d.tres" id="3_rigc0"]
 [ext_resource type="PackedScene" uid="uid://cuyob3gug4cij" path="res://scenes/game/gantry_crane/gantry_crane.tscn" id="4_g7ag8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rme20"]
