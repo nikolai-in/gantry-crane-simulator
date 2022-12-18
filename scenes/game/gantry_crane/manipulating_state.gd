@@ -3,7 +3,6 @@ extends State
 
 
 @onready var space: Node3D = owner.owner.get_node("Space")
-var has_container: bool = false
 var container: RigidBody3D
 
 
@@ -40,7 +39,6 @@ func _on_update(_delta: float) -> void:
 			space.add_child(container)
 			container.position = Vector3(%Cabin.position.x, %Arm.position.y - 2, %Wheels.position.z)
 			container.freeze = false
-			has_container = false
 			container = null
 			%CollisionShape3D.disabled = true
 			%CollisionTimer.start()
@@ -81,13 +79,12 @@ func _on_timeout(_name) -> void:
 
 
 func _on_area_3d_body_entered(body):
-	if !has_container:
+	if !container:
+		container = body
 		space.remove_child(body)
 		%Arm.add_child(body)
 		body.position = Vector3(0, -2, 0)
 		body.freeze = true
-		has_container = true
-		container = body
 	else:
 		print("HOW!?")
 
