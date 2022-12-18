@@ -25,7 +25,7 @@ func _on_update(_delta: float) -> void:
 		%Wheels.position.z -= 2 * _delta
 	elif Input.is_action_pressed("crane_up"):
 		%Wheels.position.z += 2 * _delta
-	elif Input.is_action_just_pressed("arm_down") || Input.is_action_just_pressed("arm_up") || Input.is_action_just_pressed("arm_left") || Input.is_action_just_pressed("arm_right"):
+	elif Input.is_action_pressed("container_action") || Input.is_action_just_pressed("arm_down") || Input.is_action_just_pressed("arm_up") || Input.is_action_just_pressed("arm_left") || Input.is_action_just_pressed("arm_right"):
 		change_state("Manipulating")
 
 

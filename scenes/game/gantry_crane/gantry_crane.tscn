@@ -52,10 +52,15 @@ disabled = false
 debug_mode = false
 target_path = NodePath("")
 timed = false
-next_state = NodePath("")
+next_state = NodePath("../Manipulating")
 
 [node name="Manipulating" type="Node" parent="State"]
 script = ExtResource("7_eba70")
+disabled = false
+debug_mode = false
+target_path = NodePath("")
+timed = false
+next_state = NodePath("")
 
 [connection signal="body_entered" from="Wheels/Base/Cabin/Arm/Area3D" to="State/Manipulating" method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Wheels/Base/Cabin/Arm/Area3D/CollisionTimer" to="State/Manipulating" method="_on_collision_timer_timeout"]
