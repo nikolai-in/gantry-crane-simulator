@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0ewgdk63e18a"]
+[gd_scene load_steps=10 format=3 uid="uid://b0ewgdk63e18a"]
 
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_pipql"]
 [ext_resource type="Shader" path="res://global/shaders/sky_shader.gdshader" id="1_rdv6j"]
 [ext_resource type="Script" path="res://global/free_look_camera.gd" id="2_4bwf4"]
 [ext_resource type="PackedScene" uid="uid://0wkplj3m2p0w" path="res://scenes/game/container/container.tscn" id="3_if3un"]
-[ext_resource type="Material" uid="uid://c6xmpgv6kwl25" path="res://assets/grid_material_3d.tres" id="3_rigc0"]
+[ext_resource type="Material" path="res://assets/grid_material_3d.tres" id="3_rigc0"]
 [ext_resource type="PackedScene" uid="uid://cuyob3gug4cij" path="res://scenes/game/gantry_crane/gantry_crane.tscn" id="4_g7ag8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rme20"]
@@ -25,6 +26,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.75
 
 [node name="Main" type="Node"]
+script = ExtResource("1_pipql")
 
 [node name="Space" type="Node3D" parent="."]
 
@@ -50,8 +52,20 @@ size = Vector3(500, 1, 500)
 
 [node name="GantryCrane" parent="Space" instance=ExtResource("4_g7ag8")]
 
+[node name="Container8" parent="Space" instance=ExtResource("3_if3un")]
+transform = Transform3D(0.966174, 0, -0.257873, 0, 1, 0, 0.257873, 0, 0.966174, -2.57779, 18.6783, -1.31198)
+
+[node name="Container7" parent="Space" instance=ExtResource("3_if3un")]
+transform = Transform3D(0.991506, 0, -0.130041, 0, 1, 0, 0.130041, 0, 0.991506, -1.33173, 2.38063, -0.571826)
+
+[node name="Container5" parent="Space" instance=ExtResource("3_if3un")]
+transform = Transform3D(0.997874, 0, -0.0651591, 0, 1, 0, 0.0651591, 0, 0.997874, -1.29232, 6.46426, -0.244069)
+
+[node name="Container6" parent="Space" instance=ExtResource("3_if3un")]
+transform = Transform3D(-0.997874, 0, 0.0651589, 0, 1, 0, -0.0651589, 0, -0.997874, -1.34884, 10.4624, 0.0430051)
+
 [node name="Container4" parent="Space" instance=ExtResource("3_if3un")]
-transform = Transform3D(0.999468, 0, -0.0325969, 0, 1, 0, 0.0325969, 0, 0.999468, -7.47442, 16.2859, -0.000213265)
+transform = Transform3D(-0.999468, 0, 0.0325968, 0, 1, 0, -0.0325968, 0, -0.999468, -1.31931, 14.5261, -0.000213265)
 
 [node name="Container3" parent="Space" instance=ExtResource("3_if3un")]
 transform = Transform3D(-0.999867, 0, 0.0163006, 0, 1, 0, -0.0163006, 0, -0.999867, -7.44828, 11.6078, -1.60368)

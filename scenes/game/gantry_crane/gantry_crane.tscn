@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cuyob3gug4cij"]
+[gd_scene load_steps=9 format=3 uid="uid://cuyob3gug4cij"]
 
 [ext_resource type="PackedScene" uid="uid://draciic7t4p2l" path="res://assets/gantry_crane/wheels.glb" id="1_o2bji"]
 [ext_resource type="PackedScene" uid="uid://w3uoit4k47dt" path="res://assets/gantry_crane/base.glb" id="2_781qy"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://addons/xsm/state.gd" id="5_kfq2p"]
 [ext_resource type="Script" path="res://scenes/game/gantry_crane/moving_state.gd" id="6_m6sw3"]
 [ext_resource type="Script" path="res://scenes/game/gantry_crane/manipulating_state.gd" id="7_eba70"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0bn3k"]
+size = Vector3(2, 1, 7)
 
 [node name="GantryCrane" type="Node3D"]
 
@@ -21,6 +24,18 @@ unique_name_in_owner = true
 [node name="Arm" parent="Wheels/Base/Cabin" instance=ExtResource("4_pso6d")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 0)
+
+[node name="Area3D" type="Area3D" parent="Wheels/Base/Cabin/Arm"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionTimer" type="Timer" parent="Wheels/Base/Cabin/Arm/Area3D"]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wheels/Base/Cabin/Arm/Area3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_0bn3k")
 
 [node name="State" type="Node" parent="."]
 script = ExtResource("5_kfq2p")
@@ -37,12 +52,10 @@ disabled = false
 debug_mode = false
 target_path = NodePath("")
 timed = false
-next_state = NodePath("../Manipulating")
+next_state = NodePath("")
 
 [node name="Manipulating" type="Node" parent="State"]
 script = ExtResource("7_eba70")
-disabled = false
-debug_mode = false
-target_path = NodePath("")
-timed = false
-next_state = NodePath("")
+
+[connection signal="body_entered" from="Wheels/Base/Cabin/Arm/Area3D" to="State/Manipulating" method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Wheels/Base/Cabin/Arm/Area3D/CollisionTimer" to="State/Manipulating" method="_on_collision_timer_timeout"]

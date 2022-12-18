@@ -8,6 +8,7 @@ size = Vector3(3.5, 3.6, 9.4)
 [node name="Container" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 disable_mode = 2
+collision_layer = 5
 mass = 1000.0
 contact_monitor = true
 

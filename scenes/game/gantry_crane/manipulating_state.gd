@@ -2,6 +2,11 @@
 extends State
 
 
+@onready var space: Node3D = owner.owner.get_node("Space")
+var has_container: bool = false
+var container: RigidBody3D
+
+
 #
 # FUNCTIONS TO INHERIT IN YOUR STATES
 #
@@ -29,6 +34,16 @@ func _on_update(_delta: float) -> void:
 		%Cabin.position.x -= 1 * _delta
 	elif Input.is_action_pressed("arm_right"):
 		%Cabin.position.x += 1 * _delta
+	elif Input.is_action_pressed("container_action"):
+		if container:
+			%Arm.remove_child(container)
+			space.add_child(container)
+			container.position = Vector3(%Cabin.position.x, %Arm.position.y - 2, %Wheels.position.z)
+			container.freeze = false
+			has_container = false
+			container = null
+			%CollisionShape3D.disabled = true
+			%CollisionTimer.start()
 	elif Input.is_action_just_pressed("crane_up") || Input.is_action_just_pressed("crane_down"):
 		change_state("Moving")
 	%Arm.position.y = clamp(%Arm.position.y, 4, 22)
@@ -63,3 +78,19 @@ func _state_timeout() -> void:
 func _on_timeout(_name) -> void:
 	pass
 
+
+
+func _on_area_3d_body_entered(body):
+	if !has_container:
+		space.remove_child(body)
+		%Arm.add_child(body)
+		body.position = Vector3(0, -2, 0)
+		body.freeze = true
+		has_container = true
+		container = body
+	else:
+		print("HOW!?")
+
+
+func _on_collision_timer_timeout():
+	%CollisionShape3D.disabled = false
