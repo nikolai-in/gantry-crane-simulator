@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://vgadbjjh217s"]
+
+[ext_resource type="PackedScene" uid="uid://cjvkwl2pjsc2j" path="res://assets/container/container-magenta.glb" id="1_piv8x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rny7g"]
+size = Vector3(3.5, 3.6, 9.4)
+
+[node name="Container" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+disable_mode = 2
+collision_layer = 5
+mass = 1000.0
+contact_monitor = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.38419e-07, 0)
+shape = SubResource("BoxShape3D_rny7g")
+
+[node name="Model" parent="." instance=ExtResource("1_piv8x")]
